@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingStart="5sp"
+        android:paddingEnd="5sp"
+        android:paddingTop="5sp"
+        android:background="@color/colorBackground">
+    <TextView
+            android:id="@+id/introduction_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/introduction_title"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/textColorPrimary"/>
+    <TextView
+            android:id="@+id/introduction_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/introduction_text"
+            android:textStyle="normal"
+            android:textSize="18sp"
+            android:textColor="@color/textColorPrimary"/>
+    <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_new_training_session"
+            android:textStyle="normal"
+            android:textSize="18sp"
+            android:textColor="@color/textColorPrimary"
+            android:background="@color/colorBackgroundButton"
+            android:onClick="newTrainingSession"/>
+
+</LinearLayout>

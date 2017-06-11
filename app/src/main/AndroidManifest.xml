@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.github.liketechnik.mentalMathTrainer">
+
+    <application
+            android:allowBackup="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme">
+        <activity android:name="com.github.liketechnik.mentalMathTrainer.Welcome">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+                android:name="com.github.liketechnik.mentalMathTrainer.NewTrainingSession"
+                android:label="@string/title_activity_new_training_session"
+                android:parentActivityName="com.github.liketechnik.mentalMathTrainer.Welcome">
+        </activity>
+        <activity
+                android:parentActivityName="com.github.liketechnik.mentalMathTrainer.NewTrainingSession"
+                android:name="com.github.liketechnik.mentalMathTrainer.CheckYourSettings"
+                android:label="@string/title_activity_check_your_settings">
+        </activity>
+    </application>
+
+</manifest>
