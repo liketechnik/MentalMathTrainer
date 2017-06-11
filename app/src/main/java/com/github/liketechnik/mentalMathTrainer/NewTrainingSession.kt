@@ -12,7 +12,10 @@ import android.view.View
 import android.widget.EditText
 import android.widget.Switch
 import android.widget.Toast
-import com.github.liketechnik.mentalMathTrainer.R
+import com.github.liketechnik.mentalMathTrainer.utils.TrainingSessionConstants.Companion.maxNumberOfExercises
+import com.github.liketechnik.mentalMathTrainer.utils.TrainingSessionConstants.Companion.myMaxAdditionValue
+import com.github.liketechnik.mentalMathTrainer.utils.applyTrainingSessionIntent
+import com.github.liketechnik.mentalMathTrainer.utils.packTrainingSessionIntent
 
 
 class NewTrainingSession : AppCompatActivity() {
@@ -20,6 +23,8 @@ class NewTrainingSession : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_training_session)
+
+        applyTrainingSessionIntent(this)
     }
 
     /** Called when the user uses the addition on/off switch  */
@@ -97,40 +102,7 @@ class NewTrainingSession : AppCompatActivity() {
     /** Called when the user clicks the "Go on!" button  */
     fun onClickNextActivity(view: View) {
         //* Starts the next Activity (Check Your settings)
-        val intent = Intent(this, CheckYourSettings::class.java)
-
-        val addition: Boolean
-        var maxAdditionValue: Int
-        var numberOfExercises: Int
-
-        val additionSwitch = findViewById(R.id.addition_switch) as Switch
-        if (additionSwitch.isChecked) {
-            addition = true
-        } else {
-            addition = false
-        }
-
-        val maxAdditionValueEditText = findViewById(R.id.max_addition_value) as EditText
-        val maxAdditionValueString = maxAdditionValueEditText.text.toString()
-        try {
-            maxAdditionValue = Integer.parseInt(maxAdditionValueString)
-        } catch (e: NumberFormatException) {
-            maxAdditionValue = defaultMaxAdditionValue
-        }
-
-        val numberOfExercisesEditText = findViewById(R.id.number_of_exercises) as EditText
-        val numberOfExercisesString = numberOfExercisesEditText.text.toString()
-        try {
-            numberOfExercises = Integer.parseInt(numberOfExercisesString)
-        } catch (e: NumberFormatException) {
-            numberOfExercises = defaultNumberOfExercises
-        }
-
-        intent.putExtra(ADDITION, addition)
-        intent.putExtra(MAX_ADDITION_VALUE, maxAdditionValue)
-        intent.putExtra(NUMBER_OF_EXERCISES, numberOfExercises)
-
-        startActivity(intent)
+        startActivity(packTrainingSessionIntent(this, CheckYourSettings::class.java))
     }
 
     /** Builder for the help dialog about the maximumNumberOfExercises EditText  */
@@ -173,17 +145,5 @@ class NewTrainingSession : AppCompatActivity() {
 
             return builder.create()
         }
-    }
-
-    companion object {
-
-        val ADDITION = "liketechnik.mentalmathtrainer.ADDITION"
-        val MAX_ADDITION_VALUE = "liketechnik.mentalmathtrainer.MAX_ADDITION_VALUE"
-        val NUMBER_OF_EXERCISES = "liketechnik.mentalmathtrainer.NUMBER_OF_EXERCISES"
-
-        val myMaxAdditionValue = 10000
-        val maxNumberOfExercises = 1000
-        val defaultMaxAdditionValue = 100
-        val defaultNumberOfExercises = 10
     }
 }
