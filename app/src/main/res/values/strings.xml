@@ -18,6 +18,7 @@
         (Not editable,because it is currently the only arithmetic operation supported.)
     </string>
     <string name="ok">OK</string>
+    <string name="back">Back</string>
     <string name="addition_switch_help_title">Turn Addition On/Off</string>
     <string name="max_addition_value_help_title">Maximum Addition Value</string>
     <string name="max_addition_value_help">This is the biggest number that can show up in the following exercises.
