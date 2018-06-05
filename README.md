@@ -1,2 +1,1 @@
-# MentalMathTrainer
-A simple app generating random math exercises.
+The project moved to gitlab. You can find it under: https://gitlab.com/liketechnik/MentalMathTrainer
